@@ -153,9 +153,20 @@ console.log(promptNine(arrayNineThree)); // check 3
 /* Write a function that takes an array of numbers 
 and returns the average of all the elements in the array. */
 console.log("Prompt 10:")
-function promptTen() {
-
+function promptTen(array) {
+    // Note: Realized I could use the code from prompt 1 to create this function
+    let sumNumberOne = 0;
+    for (number = 0; number < array.length; number++) {
+        sumNumberOne += array[number];
+    }
+    let avgNumOne = 0;
+    avgNumOne = sumNumberOne / array.length;
+    return avgNumOne;
 };
+
+let arrayTenExample = [10, 20, 22, 24, 26]; // using an example array
+console.log(promptTen(arrayTenExample)); // testing it to see that it works correctly.
+
 
 
 /* Prompt #11 */
@@ -173,14 +184,37 @@ function promptEleven() {
 a boolean isHotOutside, and a number moneyInPocket, 
 and returns true if it is hot outside and if moneyInPocket is greater than 10.50. */
 console.log("Prompt 12:")
-function promptTwelve() {
-    
+function willBuyDrink(isHotOutside, moneyInPocket) {
+    if((isHotOutside == true) && (moneyInPocket > 10.50)){
+        return true;
+    } else {
+        return false;
+    }
 };
+// Four examples to test below:
+let isHotOutsideTestOne = true;
+console.log(willBuyDrink(isHotOutsideTestOne, 10.49)); // false
+console.log(willBuyDrink(isHotOutsideTestOne, 10.51)); // true
+let isHotOutsideTestTwo = false;
+console.log(willBuyDrink(isHotOutsideTestTwo, 10.49)); // false
+console.log(willBuyDrink(isHotOutsideTestTwo, 10.51)); // false
 
 /* Prompt #13 */
-/* Create a function of your own that solves a problem. In 
-comments, write what the function does and why you created it. */
+/* Create a function of your own that solves a problem. 
+In comments, write what the function does and why you created it. */
+/* ANSWER */
+/* Creating a function that takes a string and writes it in reverse */
+/* Creating an "Emordnilap" */
+/* Because I thought that would be cool */
 console.log("Prompt 13:")
-function promptThirteen() {
-    
+function promptThirteen(word) {
+    let newWord = "";
+    for(i = word.length; i >= 0; i--) { // Do a sort of "Reverse loop"
+        newWord += word.charAt(i); // perform the concatenation in a count down fashion
+    }
+    return newWord; // return the word
 };
+
+console.log(promptThirteen("Object")); // doing an example
+console.log(promptThirteen("Array")); // and another 
+console.log(promptThirteen("Map")); // and another
