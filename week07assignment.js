@@ -45,7 +45,11 @@ avgNumOne = sumNumberOne / ages.length;
 console.log(avgNumOne);
 
 /* Prompt #2 */
-/*  */
+/* Create an array called names that contains 
+the following values: 'Sam', 'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'.
+Use a loop to iterate through the array and calculate the average number of letters per name.
+Use a loop to iterate through the array again and concatenate all the names together, separated by spaces.
+ */
 console.log("Prompt 2:")
 let names = ['Sam', 'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'];
 // first loop:
@@ -57,6 +61,15 @@ let avgNumTwo = 0
 avgNumTwo = collectNameLengths / names.length;
 console.log(avgNumTwo); // Average of the number of characters in each of the Array elements of names Array
 
+// second loop:
+let placeHoldName = "";
+for (i = 0; i < names.length; i++) {
+    placeHoldName += names[i]; // this concatenates each name
+    if(i < names.length - 1) { // this determines if a space should be added. The last name will not get a space after it.
+        placeHoldName += " ";
+    }
+};
+console.log(placeHoldName);
 
 /* Prompt #3 */
 /* How do you access the last element of any array? */
@@ -172,12 +185,41 @@ console.log(promptTen(arrayTenExample)); // testing it to see that it works corr
 /* Prompt #11 */
 /* Write a function that takes two arrays of 
 numbers and returns true if the average of the 
-elements in the first array is greater 
-than the average of the elements in the second array. */
+elements in the first array is greater than 
+the average of the elements in the second array. */
 console.log("Prompt 11:")
-function promptEleven() {
-    
+// Breaking down the code so I can use a function in the function I need to create
+function elevenAvgArrays(array) {
+    let sumOfArray = 0; // this copies the structure from the first prompt
+    for (arrayElement = 0; arrayElement < array.length; arrayElement++) {
+        sumOfArray += array[arrayElement]; 
+    };
+    let avgOfArray = 0;
+    avgOfArray = sumOfArray / array.length;
+    return avgOfArray;
+}
+
+// Here is the function that actually solves Prompt 11:
+function promptEleven(arrayOne, arrayTwo) {
+    if (elevenAvgArrays(arrayOne) > elevenAvgArrays(arrayTwo)) { // uses the function above
+        return true;
+    } else {
+        return false;
+    }
 };
+
+
+let testArrayElevenOne = [5, 6, 7];
+let testArrayElevenTwo = [50, 60, 70];
+console.log(elevenAvgArrays(testArrayElevenOne));
+console.log(elevenAvgArrays(testArrayElevenTwo));
+console.log(promptEleven(testArrayElevenOne, testArrayElevenTwo));
+
+let testArrayElevenThree = [20, 30, 40];
+let testArrayElevenFour = [2, 3, 4];
+console.log(elevenAvgArrays(testArrayElevenThree));
+console.log(elevenAvgArrays(testArrayElevenFour));
+console.log(promptEleven(testArrayElevenThree, testArrayElevenFour));
 
 /* Prompt #12 */
 /* Write a function called willBuyDrink that takes 
